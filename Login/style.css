@@ -1,0 +1,108 @@
+body {
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f7f7f7;
+  margin: 30px 10px;
+  align-self: center;
+  justify-self: center;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: repeat(5, auto);
+}
+#imgBulldog {
+  max-width: 100%;
+  border-radius: 4px;
+  grid-row: 1/-1;
+  height: 100vh;
+}
+#logo {
+  line-height: 1;
+  grid-row: 1;
+}
+p,
+span,
+button {
+  font-size: 20px;
+}
+
+.flex {
+  margin: 20px;
+  display: inline;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#imagemLogin {
+  display: grid;
+  grid-column: 1/4;
+  grid-row: 1/-1;
+  height: 100vh;
+}
+
+#login {
+  display: grid;
+  justify-self: start;
+  place-items: center;
+  gap: 20px;
+  grid-column: 4;
+  grid-row: 1/-1;
+  text-align: center;
+  background: #fff;
+  border-radius: 4px;
+  height: 100vh;
+}
+
+#formLogin {
+  grid-row: 2/3;
+}
+
+.buttonLogin {
+  margin: 0px;
+  grid-row: 3;
+  padding: 8px 150px;
+  border-radius: 4px;
+  background-color: #FFBB11;
+  border: none;
+  color: #fff;
+}
+
+.detalhe{
+  height: 2px;
+  width: 80%;
+  justify-items: center;
+  align-items: center;
+  background: #FFBB11;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 0px;
+  margin: 0px;
+}
+
+.detalhe p{
+  justify-items: center;
+  align-items: center;
+  background: #fff;
+  display: grid;
+  grid-row: 2;
+  margin: -10px;
+  padding: 1px 10px;
+}
+
+.redes {
+  display: flex;
+  gap: 20px;
+  grid-row: 5;
+}
+
+.redes img {
+  background: #efefef;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.buttonCriar{
+  border: none;
+  background-color: #fff;
+  color:#FFBB11
+}
