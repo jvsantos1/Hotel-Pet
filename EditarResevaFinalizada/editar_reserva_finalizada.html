@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_editar_reserva_finalizada.css">
+    <title>Editar Reserva Finalizada</title>
+</head>
+<body>
+    <header>
+        <h1>Hotel Pet</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="pets.html">Pet</a></li>
+                <li><a href="usuarios.html">Usuários</a></li>
+                <li><a href="configuracoes.html">Configurações</a></li>
+                <li><a href="reservas.html">Reservas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Editar Reserva Finalizada</h2>
+        <form>
+            <label for="proprietario">Proprietário *</label>
+            <input type="text" id="proprietario" name="proprietario" required>
+
+            <label for="pet">Pet *</label>
+            <input type="text" id="pet" name="pet" required>
+
+            <label for="periodo">Período *</label>
+            <input type="text" id="periodo" name="periodo" placeholder="dd/mm/aaaa - dd/mm/aaaa" required>
+
+            <label for="status">Status</label>
+            <select id="status" name="status" disabled>
+                <option value="finalizado">Finalizado</option>
+            </select>
+
+            <label for="total">Total das Diárias</label>
+            <input type="text" id="total" name="total" required>
+
+            <label for="notas">Notas</label>
+            <textarea id="notas" name="notas" rows="4"></textarea>
+
+            <button type="submit">Salvar</button>
+            <button type="reset">Limpar</button>
+        </form>
+    </main>
+</body>
+</html>

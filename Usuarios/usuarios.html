@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_usuarios.css">
+    <title>Usuários</title>
+</head>
+<body>
+    <header>
+        <h1>Hotel Pet</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="pets.html">Pet</a></li>
+                <li><a href="usuarios.html">Usuários</a></li>
+                <li><a href="configuracoes.html">Configurações</a></li>
+                <li><a href="reservas.html">Reservas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Usuários</h2>
+        <div class="usuarios-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Foto</th>
+                        <th>Email</th>
+                        <th>Nome</th>
+                        <th>Função</th>
+                        <th>Status</th>
+                        <th>Criado em</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="usuario1.jpg" alt="Foto do usuário" class="foto"></td>
+                        <td>joaodasilva@pet.com</td>
+                        <td>João da Silva</td>
+                        <td>Gerente</td>
+                        <td>Ativo</td>
+                        <td>19/02/2020</td>
+                        <td><a href="editar_usuario.html">Editar</a> | <a href="visualizar_usuario.html">Visualizar</a></td>
+                    </tr>
+                    <tr>
+                        <td><img src="usuario2.jpg" alt="Foto do usuário" class="foto"></td>
+                        <td>josedasilva@pet.com</td>
+                        <td>José da Silva</td>
+                        <td>Cliente</td>
+                        <td>Ativo</td>
+                        <td>19/02/2020</td>
+                        <td><a href="editar_usuario.html">Editar</a> | <a href="visualizar_usuario.html">Visualizar</a></td>
+                    </tr>
+                    <!-- Mais usuários podem ser adicionados aqui -->
+                </tbody>
+            </table>
+            <button onclick="window.location.href='novo_usuario.html'">Novo Usuário</button>
+        </div>
+    </main>
+</body>
+</html>

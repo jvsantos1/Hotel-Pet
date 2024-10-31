@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleCadPet.css">
+    <title>Novo Pet</title>
+</head>
+<body>
+    <header>
+        <h1>Hotel Pet</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="pets.html">Pet</a></li>
+                <li><a href="usuarios.html">Usuários</a></li>
+                <li><a href="configuracoes.html">Configurações</a></li>
+                <li><a href="reservas.html">Reservas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Novo Pet</h2>
+        <form>
+            <label for="proprietario">Proprietário *</label>
+            <input type="text" id="proprietario" name="proprietario" required>
+
+            <label for="nome">Nome *</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="tipo">Tipo *</label>
+            <input type="text" id="tipo" name="tipo" required>
+
+            <label for="tamanho">Tamanho *</label>
+            <input type="text" id="tamanho" name="tamanho" required>
+
+            <label for="raca">Raça *</label>
+            <input type="text" id="raca" name="raca" required>
+
+            <label for="imagem">Imagem</label>
+            <input type="file" id="imagem" name="imagem">
+
+            <button type="submit">Salvar</button>
+            <button type="reset">Limpar</button>
+        </form>
+    </main>
+</body>
+</html>

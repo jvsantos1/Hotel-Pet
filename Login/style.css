@@ -92,7 +92,7 @@ button {
 .redes {
   display: flex;
   gap: 20px;
-  grid-row: 5;
+  grid-row: 4;
 }
 
 .redes img {
@@ -103,6 +103,7 @@ button {
 
 .buttonCriar{
   border: none;
+  grid-row: 5;
   background-color: #fff;
   color:#FFBB11
 }

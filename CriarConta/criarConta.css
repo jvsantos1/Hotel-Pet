@@ -8,7 +8,7 @@ body {
   display: grid;
   gap: 20px;
   grid-template-columns: 3fr 2fr;
-  grid-template-rows: repeat(4, auto);
+  grid-template-rows: repeat(5, auto);
 }
 #imgDog {
   max-width: 100%;
@@ -43,7 +43,6 @@ button {
 
 #Cadastro {
   display: grid;
-  justify-self: start;
   place-items: center;
   grid-column: 3/5;
   grid-row: 1/-1;
@@ -60,16 +59,18 @@ button {
 
 .btnCriar {
   margin: 0px;
+  margin-top: 120px;
   grid-row: 3;
   padding: 8px 150px;
   border-radius: 4px;
   background-color: #ffbb11;
   border: none;
   color: #fff;
+  grid-row: 4;
 }
 
 .btnLogin {
-  grid-row: 4;
+  grid-row: 5;
   border: none;
   background-color: #fff;
   color: #ffbb11;

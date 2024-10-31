@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_pets.css">
+    <title>Pets</title>
+</head>
+<body>
+    <header>
+        <h1>Hotel Pet</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="pets.html">Pet</a></li>
+                <li><a href="usuarios.html">Usuários</a></li>
+                <li><a href="configuracoes.html">Configurações</a></li>
+                <li><a href="reservas.html">Reservas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Pets</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Tipo</th>
+                    <th>Raça</th>
+                    <th>Tamanho</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>12345</td>
+                    <td>Max</td>
+                    <td>Cachorro</td>
+                    <td>Pastor Alemão</td>
+                    <td>Grande</td>
+                    <td><a href="visualizar_pet.html">Visualizar</a> | <a href="editar_pet.html">Editar</a></td>
+                </tr>
+                
+            </tbody>
+        </table>
+        <button onclick="window.location.href='novo_pet.html'">Novo Pet</button>
+    </main>
+</body>
+</html>
