@@ -101,6 +101,11 @@ button {
   border-radius: 4px;
 }
 
+.redes img:hover{
+  filter: brightness(0.9);
+  transform: scale(1.1);
+}
+
 .buttonCriar{
   border: none;
   grid-row: 5;

@@ -58,10 +58,10 @@ button {
 }
 
 .btnCriar {
-  margin: 0px;
+  margin: 30px;
   margin-top: 120px;
   grid-row: 3;
-  padding: 8px 150px;
+  padding: 8px 100px;
   border-radius: 4px;
   background-color: #ffbb11;
   border: none;
