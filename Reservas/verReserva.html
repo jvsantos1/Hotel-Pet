@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/">
+    <title>Ver Reserva</title>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <img id="logo" src="../imgGeral/logoB.svg" alt="Hotel Pet">
+            <nav>
+                <ul>
+                    <li><a href="/Pets/pets.html">Pet</a></li>
+                    <li><a href="/Usuarios/usuarios.html">Usuários</a></li>
+                    <li><a href="/Reservas/configuracoes.html">Configurações</a></li>
+                    <li><a href="/Reservas/reservas.html">Reservas</a></li>
+                </ul>
+            </nav>
+        </aside>
+  
+        <!-- Conteúdo principal -->
+        <main class="main-content">
+            
+          <!-- Seção de visualização da reserva -->
+          <section class="view-pet-section">
+            <h2>Ver Reserva</h2>
+            <div class="botaoEV">
+              <button class="btn edit" id="editarReserva">✎ Editar</button>
+              <button class="btn delete" id="deletarReserva">🗑️ Deletar</button>
+            </div>
+  
+            <div class="pet-details" id="reservaDetalhes">
+              <!-- Detalhes da reserva serão preenchidos pelo JavaScript -->
+            </div>
+  
+            <button
+              class="btn back"
+              onclick="window.location.href='reservas.html'"
+            >
+              ← Voltar
+            </button>
+          </section>
+        </main>
+      </div>
+  
+      <script>
+        // Função para carregar detalhes da reserva a partir dos parâmetros da URL
+        function carregarDetalhesReserva() {
+          const params = new URLSearchParams(window.location.search);
+          const id = params.get("id");
+  
+          // Recuperar as reservas do localStorage
+          const reservas = JSON.parse(localStorage.getItem("reservas")) || [];
+          const pets = JSON.parse(localStorage.getItem("pets")) || [];
+  
+          // Encontrar a reserva correspondente ao id
+          const reserva = reservas.find((r) => r.id == id);
+  
+          // Verificar se a reserva foi encontrada
+          if (reserva) {
+            // Encontrar o proprietário do pet
+            const pet = pets.find((p) => p.nome === reserva.pet);
+            const proprietario = pet ? pet.proprietario : "Desconhecido";
+  
+            document.getElementById("reservaDetalhes").innerHTML = `
+              <p><strong>Id:</strong> ${reserva.id}</p>
+              <p><strong>Proprietário:</strong> ${proprietario}</p>
+              <p><strong>Pet:</strong> ${reserva.pet}</p>
+              <p><strong>Chegada:</strong> ${new Date(reserva.inicio).toLocaleDateString()}</p>
+              <p><strong>Partida:</strong> ${new Date(reserva.termino).toLocaleDateString()}</p>
+              <p><strong>Notas:</strong> ${reserva.notas}</p>
+              <p><strong>Status:</strong> ${reserva.status}</p>
+              <p><strong>Total das diárias:</strong> R$ ${reserva.total.toFixed(2)}</p>
+            `;
+  
+            document.getElementById("editarReserva").onclick = function () {
+              window.location.href = `editar_reserva.html?id=${reserva.id}`;
+            };
+  
+            document.getElementById("deletarReserva").onclick = function () {
+              deletarReserva(reserva.id);
+            };
+          } else {
+            alert("Reserva não encontrada!");
+          }
+        }
+  
+        // Função para deletar a reserva
+        function deletarReserva(id) {
+          let reservas = JSON.parse(localStorage.getItem("reservas")) || [];
+          reservas = reservas.filter((r) => r.id != id);
+          localStorage.setItem("reservas", JSON.stringify(reservas));
+          alert("Reserva deletada com sucesso!");
+          window.location.href = "reservas.html";
+        }
+  
+        window.onload = carregarDetalhesReserva;
+      </script>
+</body>
+</html>

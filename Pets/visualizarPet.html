@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/visualizarPet.css">
+    <title>Visualizar Pet</title>
+</head>
+<body>
+    
+    <div class="container">
+        <aside class="sidebar">
+            <img id="logo" src="../imgGeral/logoB.svg" alt="Hotel Pet">
+            <nav>
+                <ul>
+                    <li><a href="/Pets/pets.html">Pet</a></li>
+                    <li><a href="/Usuarios/usuarios.html">Usuários</a></li>
+                    <li><a href="/Reservas/configuracoes.html">Configurações</a></li>
+                    <li><a href="/Reservas/reservas.html">Reservas</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+
+            <div class="perfil">
+                <div class="img-perfil">
+                    <a href="#"><img src="perfil.png" alt="Perfil" width="35" height="35"></a>
+                </div>
+            </div>
+
+            <div class="reservas">
+                <h2>Ver Pet</h2>
+
+            
+                <div class="reserva-detalhes">
+                    <p><strong>Nome:</strong> <span id="pet-nome"></span></p>
+                    <p><strong>Tipo:</strong> <span id="pet-tipo"></span></p>
+                    <p><strong>Raça:</strong> <span id="pet-raca"></span></p>
+                    <p><strong>Tamanho:</strong> <span id="pet-tamanho"></span></p>
+                    
+     
+                    <div class="imagens-reserva">
+                        <h3>Imagens</h3>
+                        <img id="pet-imagem" src="" alt="Imagem do Pet" style="max-width: 200px;">
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button onclick="window.history.back()">Voltar</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+<script src="visualizarPet.js"></script>
+</body>
+</html>

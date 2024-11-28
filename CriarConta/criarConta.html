@@ -11,28 +11,38 @@
 <body>
 
   <div id="imagemCadastro">
-    <img id="imgDog" src="./img/cachorro.jpg" alt="Bulldog">
+    <div class="carousel">
+      <div class="slides">
+        <img src="./img/cachorro.jpg" alt="Imagem 1">
+        <img src="./img/cachorro4.jpg" alt="Imagem 2">
+        <img src="./img/cachorro2.jpg" alt="Imagem 3">
+        <img src="./img/cachorro3.jpg" alt="Imagem 4">
+        <img src="./img/cachorro.jpg" alt="Imagem 4">
+      </div>
+    </div>
   </div>
+  
 
   <section id="Cadastro">
     <img id="logo" src="../imgGeral/logo.svg" alt="Hotel Pet">
     
     <section id="formCadastro">
-      <form>
-          <label for="Nome">Nome:</label>
-          <input type="text" id="nome" required/><br><br>
-          <label for="tel">Celular:</label>
-          <input type="tel" id="tel" required/><br><br>
-          <label for="email">E-mail:</label>
-          <input type="email" id="email" required/><br><br>
-          <label for="password">Senha:</label>
-          <input type="password" id="password" required/><br><br>
-          <button class="btnCriar" type="submit" onclick="location.href='../Reservas/reservas.html'">Criar Conta</button>
-      </form>
+      <form id="criarContaForm">
+        <label for="Nome">Nome:</label>
+        <input type="text" id="nome" required /><br><br>
+        <label for="tel">Celular:</label>
+        <input type="tel" id="tel" required /><br><br>
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" required /><br><br>
+        <label for="password">Senha:</label>
+        <input type="password" id="password" required /><br>
+        <button class="btnCriar" type="submit">Criar Conta</button>
+    </form>    
     </section>
     <button class="btnLogin" onclick="location.href='../Login/index.html'">Já tenho uma conta</button>
-
   </section>
+
+  <script src="/CriarConta/criarConta.js"></script>
 </body>
 
 </html>

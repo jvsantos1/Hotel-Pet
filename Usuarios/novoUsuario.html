@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Usuarios/novoUsuario.css">
+    <title>Novo Usuário</title>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <img id="logo" src="../imgGeral/logoB.svg" alt="Hotel Pet">
+            <nav>
+                <ul>
+                    <li><a href="/Pets/pets.html">Pet</a></li>
+                    <li><a href="/Usuarios/usuarios.html">Usuários</a></li>
+                    <li><a href="/Reservas/configuracoes.html">Configurações</a></li>
+                    <li><a href="/Reservas/reservas.html">Reservas</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+
+            <div class="reservas">
+                <h2>Novo Usuário</h2>
+
+                <div class="reservas2">
+                    <form id="formCadastroUsuario">
+
+                         <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                           </div>
+              
+
+                              <div class="form-group">
+                                  <label for="Nome">Nome</label>
+                                  <input type="text" id="Nome" name="Nome" required>
+                              </div>
+
+                              <div class="form-group">
+                                <label for="telefone">Telefone *</label>
+                                 <input type="text" id="telefone" name="telefone" placeholder="(00)0000-0000" required>
+                               </div>
+
+
+                              <div class="form-group">
+                                <label for="funcao">Função</label>
+                                <select id="funcao" name="funcao">
+                                  <option value="cliente">Cliente</option>
+                                  <option value="funcionario">Funcionário</option>
+                                  <option value="gerente">Gerente</option>
+                                </select>
+                            </div>
+              
+
+                                  <div class="form-group">
+                                    <label for="imagem_pet">Anexar Imagem do Pet</label>
+                                    <input type="file" id="imagem_pet" name="imagem_pet" accept="image/*">
+                                </div>
+
+                        <div class="form-actions">
+                            <button type="submit">Salvar</button>
+                            <button type="reset">Limpar</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </main>
+        <script src="novoUsuario.js"></script>
+    </div>
+</body>
+</html>

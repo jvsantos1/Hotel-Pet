@@ -11,28 +11,39 @@
 <body>
 
   <div id="imagemLogin">
-    <img id="imgBulldog" src="./img/login_pet.jpg" alt="Bulldog">
+    <div class="carousel">
+      <div class="slides">
+        <img id="imgBulldog" src="./img/login_pet.jpg" alt="Bulldog">
+        <img src="./img/cachorro1.jpg" alt="Imagem 1">
+        <img src="./img/cachorro2.jpg" alt="Imagem 2">
+        <img src="./img/cachorro3.jpg" alt="Imagem 3">
+        <img src="./img/cachorro4.jpg" alt="Imagem 3">
+        <img src="./img/cachorro5.jpg" alt="Imagem 3">
+        <img src="./img/cachorro6.jpg" alt="Imagem 3">
+      </div>
+    </div>
   </div>
 
   <section id="login">
     <img id="logo" src="../imgGeral/logo.svg" alt="Hotel Pet">
     <section id="formLogin">
-      <form>
+      <form id="formLogin">
         <div>
-          <label for="login">Login:</label>
-          <input type="text" id="nome" required /><br><br>
+          <label for="nome">Login:</label>
+          <input type="text" id="nome" placeholder="Digite seu login" required /><br>
         </div>
         <div>
           <label for="password">Senha:</label>
-          <input type="password" id="password" required /><br><br>
+          <input type="password" id="password" placeholder="Digite sua senha" required /><br>
         </div>
         <div class="flex">
           <input type="checkbox" id="conect" name="conect" value="conect">
-          <label for="conect">manenha-me conectado</label>
+          <label for="conect">Manter-me conectado</label>
         </div>
-        <a href="/" class="flex">Esqueci a senha</a><br><br>
-        <button class="buttonLogin" onclick="location.href='../Reservas/reservas.html'" type="submit">Entrar</button>
+        <a href="/" class="flex">Esqueci a senha</a>
+        <button class="buttonLogin" type="submit">Entrar</button>
       </form>
+         
     </section>
 
     <span class="detalhe">
@@ -47,6 +58,8 @@
     <button class="buttonCriar" onclick="location.href='../CriarConta/criarConta.html'">Criar uma conta</button>
 
   </section>
+  <script src="/Login/script.js"></script>
+
 </body>
 
 </html>

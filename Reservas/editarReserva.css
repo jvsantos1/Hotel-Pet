@@ -1,0 +1,260 @@
+/* Reset de margens e paddings */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh; /* Garante que ocupe a altura da tela */
+  background-color: #f3f3f3;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background-color: #FFBB11;
+  padding: 20px;
+  border-right: 1px solid #e5a610; /* Linha divisória */
+  min-height: 100vh; /* Para ocupar toda a altura da página */
+}
+
+.sidebar img {
+  margin-bottom: 20px;
+}
+
+/* Links da sidebar */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+}
+
+.sidebar ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+
+/* Estilo para a seção de reservas */
+.reservas {
+  margin-top: 10px;
+  padding: 20px;
+  background-color: #f3f3f3; /* Fundo claro */
+  border-radius: 10px;
+}
+
+.reservas2 {
+  margin-top: 10px;
+  padding: 20px;
+  background-color: #FFBB11;
+  border-radius: 10px;
+}
+.table {
+  width: 100%;
+  margin-top: 20px;
+
+}
+
+
+.table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #f5f5dc;
+  /*´rincipal*/
+  font-weight: bold;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #99cdbf;
+  /* gringer*/
+}
+
+
+.table .status {
+  padding: 5px 10px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 12px;
+}
+
+.table .status.ativo {
+  background-color: #4CAF50;
+}
+
+.table .status.inativo {
+  background-color: #e73403;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #FFBB11;
+  margin-bottom: 20px;
+}
+/* Estilos para o formulário de reservas */
+.form-reservas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Estilo para cada grupo de formulário */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #444;
+}
+
+/* Estilo para os campos de entrada de data (lado a lado) */
+.form-group-periodo {
+  display: inline-block;
+  width: 49%;
+  font-weight: bold;
+}
+
+.form-group-periodo input {
+  width: 100%;
+}
+
+/* Estilos gerais para inputs, selects e textarea */
+input,
+select,
+textarea {
+  padding: 7px;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f3f3f3;
+}
+
+/* Estilos para botões de ação */
+.form-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.form-action_novareserva {
+  text-align: left;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #fff;
+  color: #e5a610;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #e5a610;
+  color: #fff;
+}
+
+.total-diarias {
+  font-size: 16px;
+  color: #333;
+  margin-top: 10px;
+  padding: 8px;
+  margin-left: 3ch;
+}
+
+.total-diarias span {
+  color: #2c5d12;
+  font-weight: bold;
+}
+
+
+.pets table {
+  width: 100%;
+  margin-top: 20px;
+  color: #005f6a;
+}
+
+.pets table body {
+  width: 100%;
+  margin-top: 200px;
+  color: #005f6a;
+}
+
+.table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #f5f5dc;
+  /*´rincipal*/
+  font-weight: bold;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #e0efe9;
+  /* gringer*/
+}
+
+.table a {
+  color: #007d8d;
+  /*editar*/
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.table .status {
+  padding: 5px 10px;
+  border-radius: 4px;
+  color: #005f6a;
+  font-size: 12px;
+}
+
+.table .status.ativo {
+  background-color: #4CAF50;
+}
+
+.table .status.inativo {
+  background-color: #e73403;
+}

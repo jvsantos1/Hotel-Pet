@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./configuracoes.css"">
+    <title>Configurações</title>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <aside class="sidebar">
+                <img id="logo" src="../imgGeral/logoB.svg" alt="Hotel Pet">
+                <nav>
+                    <ul>
+                        <li><a href="/Pets/pets.html">Pet</a></li>
+                        <li><a href="/Usuarios/usuarios.html">Usuários</a></li>
+                        <li><a href="/Reservas/configuracoes.html">Configurações</a></li>
+                        <li><a href="/Reservas/reservas.html">Reservas</a></li>
+                    </ul>
+                </nav>
+            </aside>
+      
+            <main class="content">
+                    
+              <div class="reservas">
+                <h2>Configurações</h2>
+      
+                <div class="reservas2">
+                  <form id="form-configuracoes">
+                    <div class="form-grid">
+                      <div class="form-fields">
+                        <div class="form-group">
+                          <label for="diaria">Valor da diária:
+                          </label>
+                          <input type="text" id="diaria"
+                            name="diaria" required />
+                        </div>
+                        <div class="form-group">
+                          <label for="vagas">Vagas disponíveis:
+                            *</label>
+                          <input type="text" id="vagas"
+                            name="vagas" required />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-buttons">
+                      <button type="submit"
+                        class="btn search">Salvar</button>
+                      <button type="reset"
+                        class="btn edit">Limpar</button>
+                    </div>
+                  </form>
+                </div>
+              </main>
+            </div>
+      
+            <script>
+                      document.getElementById("form-configuracoes").onsubmit = function (
+                        event
+                      ) {
+                        event.preventDefault();
+                        salvarConfiguracoes();
+                      };
+                
+                      function salvarConfiguracoes() {
+                        const diaria = document.getElementById("diaria").value;
+                        const vagas = document.getElementById("vagas").value;
+                
+                        const configuracoes = {
+                          diaria: parseFloat(diaria.replace("R$", "").replace(",", ".")),
+                          vagas: parseInt(vagas, 10),
+                        };
+                
+                        localStorage.setItem("configuracoes", JSON.stringify(configuracoes));
+                        alert("Configurações salvas com sucesso!");
+                      }
+                
+                      function carregarConfiguracoes() {
+                        const configuracoes =
+                          JSON.parse(localStorage.getItem("configuracoes")) || {};
+                        if (configuracoes.diaria) {
+                          document.getElementById(
+                            "diaria"
+                          ).value = `R$ ${configuracoes.diaria.toFixed(2)}`;
+                        }
+                        if (configuracoes.vagas) {
+                          document.getElementById("vagas").value = configuracoes.vagas;
+                        }
+                      }
+                
+                      window.onload = carregarConfiguracoes;
+                    </script>
+      
+</body>
+</html>

@@ -1,0 +1,121 @@
+/* Estilos gerais */
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  overflow: hidden; /* Impede rolagem global */
+  transition: margin-left 0.3s ease-in-out;
+}
+
+/* Barra lateral */
+.sidebar {
+  width: 220px;
+  background-color: #FFBB11;
+  padding-top: 20px;
+  flex-shrink: 0;
+  color: white;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto; /* Habilita rolagem vertical */
+}
+
+.sidebar h1 {
+  font-size: 24px;
+  margin: 0 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: block;
+  transition: background-color 0.3s, transform 0.2s ease;
+  font-size: 16px;
+  border-radius: 6px;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+  background-color: #e5a610;
+  transform: translateX(5px);
+}
+
+.sidebar ul li a.active {
+  background-color: #e5a610;
+}
+
+/* Conteúdo principal */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #ffffff;
+  margin-left: 240px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: margin-left 0.3s ease;
+  overflow-y: auto; /* Habilita rolagem vertical no conteúdo */
+  max-height: 100vh; /* Limita a altura para a rolagem funcionar */
+}
+
+header h1 {
+  font-size: 26px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 18px;
+  color: #666;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 15px;
+    box-shadow: none;
+  }
+
+  header h1 {
+    font-size: 22px;
+  }
+
+  .sidebar ul li a {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+}

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Pets/cadPets.css">
-    <title>Novo Pet</title>
+    <link rel="stylesheet" href="/">
+    <title>Editar Perfil</title>
 </head>
 <body>
     <div class="container">
@@ -21,63 +21,57 @@
         </aside>
 
         <main class="content">
-           
 
             <div class="reservas">
-                <h2>Novo Pet</h2>
+                <h2>Editar Pet</h2>
 
                 <div class="reservas2">
-                    <form method="post" action="#">
+                    <form>
                         <div class="form-reservas">
                             <div class="form-group">
-                                <label for="proprietario">Proprietário *</label>
-                                <input type="text" id="proprietario" name="proprietario" required>
-                            </div>
-                          
-                            <div class="form-group">
-                                <label for="nome">Nome *</label>
+                                <label for="Nome">Nome</label>
                                 <input type="text" id="Nome" name="Nome" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="tipo">Tipo *</label>
-                                <select id="tipo" name="tipo" required>
+                                <label for="tipo">Tipo</label>
+                                <select id="tipo" name="tipo">
                                     <option value="Cachorro">Cachorro</option>
                                     <option value="Gato">Gato</option>
                                 </select>
                             </div>
-                          
+
                             <div class="form-group">
-                                <label for="raca">Raça *</label>
+                                <label for="raca">Raça</label>
                                 <input type="text" id="raca" name="raca" required>
                             </div>
-                              
+
                             <div class="form-group">
-                                <label for="tamanho">Tamanho *</label>
-                                <select id="tamanho" name="tamanho" required>
-                                    <option value="Pequeno">Pequeno</option>
-                                    <option value="Médio">Médio</option>
+                                <label for="tamanho">Tamanho</label>
+                                <select id="tamanho" name="tamanho">
                                     <option value="Grande">Grande</option>
+                                    <option value="Médio">Médio</option>
+                                    <option value="Pequeno">Pequeno</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
                                 <label for="imagem_pet">Anexar Imagem do Pet</label>
                                 <input type="file" id="imagem_pet" name="imagem_pet" accept="image/*">
-
                             </div>
+                        </div>
 
-                            <div class="form-actions">
-                                <button type="submit">Salvar</button>
-                                <button type="reset">Limpar</button>
-                            </div>
+                        <div class="form-actions">
+                            <button type="submit">Salvar</button>
+                            <button type="reset">Limpar</button>
                         </div>
                     </form>
                 </div>
 
             </div>
-
         </main>
-<script src="cadPet.js"></script>
+    </div>
+
+    <script src="editarPerfil.js"></script>
 </body>
 </html>

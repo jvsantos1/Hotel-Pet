@@ -1,0 +1,165 @@
+
+/* Reset de margens e paddings */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh; /* Garante que ocupe a altura da tela */
+  background-color: #f3f3f3;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background-color: #FFBB11;
+  padding: 20px;
+  border-right: 1px solid #e5a610; /* Linha divisória */
+  min-height: 100vh; /* Para ocupar toda a altura da página */
+}
+
+.sidebar img {
+  margin-bottom: 20px;
+}
+
+/* Links da sidebar */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+}
+
+.sidebar ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  color: #666;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.view-pet-section {
+  background-color: #CFFFC4;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.view-pet-section h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.image-placeholder {
+  width: 150px;
+  height: 150px;
+  background-color: #ccc;
+  display: inline-block;
+  border: 1px solid #aaa;
+  margin-bottom: 20px;
+}
+
+.btn.edit {
+  background-color: #ffffff;
+  color: #2C5D12;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 8px 12px;
+  margin-right: 10px;
+}
+
+.btn.delete {
+  background-color: #ffffff;
+  color: #e80707;
+  border: 2px solid #e80707;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 8px 12px;
+  margin-right: 10px;
+}
+
+.btn.back {
+  background-color: #ffffff;
+  color: #2C5D12;
+  border: 2px solid #2C5D12;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px 15px;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.btn.back:hover,
+.btn.edit:hover,
+.btn.delete:hover {
+  background-color: #6CE52B;
+  color: #fff;
+}
+
+.botaoEV {
+  margin-bottom: 5ch;
+}
+
+.pet-details {
+  font-size: 16px;
+  color: #2C5D12;
+}
+
+.pet-details p {
+  margin: 5px 0;
+}
+
+.pet-details .image-placeholder {
+  width: 100px;
+  height: 100px;
+  background-color: #e0e0e0;
+  border: 1px solid #ccc;
+  display: inline-block;
+}
+
+.pet-details a {
+  text-decoration: none;
+  font-size: 14px;
+}

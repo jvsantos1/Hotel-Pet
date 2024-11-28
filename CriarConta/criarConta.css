@@ -48,7 +48,6 @@ button {
   grid-row: 1/-1;
   gap: 20px;
   text-align: center;
-  background: #fff;
   border-radius: 4px;
   height: 100vh;
 }
@@ -75,3 +74,58 @@ button {
   background-color: #fff;
   color: #ffbb11;
 }
+
+/* Estilo do carrossel */
+.carousel {
+  position: relative;
+  width: 100%; /* O carrossel ocupa toda a largura disponível */
+  height: 100vh; /* Altura igual à da viewport */
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  width: 300%; /* 100% para cada imagem, 4 imagens no total */
+  animation: slide 60s infinite; /* Ciclo de 15 segundos */
+}
+
+.slides img {
+  width: 25%; /* Cada imagem ocupa 25% da largura do carrossel */
+  height: 100%; /* Ajusta à altura do carrossel */
+  object-fit: cover; /* Ajusta proporções sem distorções */
+}
+
+/* Animação */
+@keyframes slide {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-100%); }
+  50% { transform: translateX(-200%); }
+  75% { transform: translateX(-300%); }
+  100% { transform: translateX(0); }
+}
+
+/* Estilização para os campos de texto */
+#formCadastro input[type="text"],
+#formCadastro input[type="tel"],
+#formCadastro input[type="email"],
+#formCadastro input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Estilização do campo de texto ao focar */
+#formCadastro input[type="text"]:focus,
+#formCadastro input[type="tel"]:focus,
+#formCadastro input[type="password"]:focus {
+  border-color: #FFBB11;
+  box-shadow: 0 0 5px rgba(255, 187, 17, 0.5);
+  background-color: #fff;
+  outline: none;
+}
+
+

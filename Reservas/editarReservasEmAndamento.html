@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Reservas/editarReservasEmAndamento.css">
+    <title>Nova Reserva</title>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <img id="logo" src="../imgGeral/logoB.svg" alt="Hotel Pet">
+      <nav>
+          <ul>
+              <li><a href="/Pets/pets.html">Pet</a></li>
+              <li><a href="/Usuarios/usuarios.html">Usuários</a></li>
+              <li><a href="/Reservas/configuracoes.html">Configurações</a></li>
+              <li><a href="/Reservas/reservas.html">Reservas</a></li>
+          </ul>
+      </nav>
+  </aside>
+
+    <!-- Conteúdo principal -->
+    <main class="content">
+      <!-- Seção de reserva -->
+      <div class="reservas">
+        <h2>Editar reserva em andamento</h2>
+        <form id="form-editar-reserva-em-andamento">
+          <div class="form-grid">
+            <div class="form-fields">
+              <div class="form-group">
+                <label for="pet">Pet: *</label>
+                <input type="text" id="pet" name="pet" required />
+              </div>
+
+              <div>
+                <div class="form-group small-group">
+                  <label for="inicio">Período:</label>
+                  <input type="date" id="inicio" name="inicio" />
+                </div>
+                <div class="form-group small-group">
+                  <input type="date" id="termino" name="termino" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Notas:</label>
+                <textarea id="notas" name="notas" rows="4"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="status">Status:</label>
+                <select id="status" name="status">
+                  <option value="">Selecione</option>
+                  <option value="reservado">Reservado</option>
+                  <option value="em andamento">Em andamento</option>
+                  <option value="cancelado">Cancelado</option>
+                  <option value="finalizado">Finalizado</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Anotações do funcionário:</label>
+                <textarea
+                  id="funcionarioNotas"
+                  name="funcionarioNotas"
+                  rows="4"
+                ></textarea>
+              </div>
+              <div class="image-upload">
+                <label>Imagem</label>
+                <div class="image-placeholder">
+                  <!-- Placeholder para imagem -->
+                </div>
+                <input
+                  type="file"
+                  id="imagem"
+                  name="imagem"
+                  accept="image/*"
+                />
+              </div>
+
+              <div class="total-diarias">
+                Total das diárias: <span id="total-diarias">R$ 0,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn search">Salvar</button>
+            <button type="reset" class="btn edit">Limpar</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    function carregarDetalhesReserva() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+
+      const reservas = JSON.parse(localStorage.getItem("reservas")) || [];
+
+      const reserva = reservas.find((r) => r.id == id);
+
+      if (reserva) {
+        if (reserva.status !== "em andamento") {
+          alert("Esta página é apenas para reservas em andamento.");
+          window.location.href = `editar_reserva.html?id=${id}`;
+          return;
+        }
+
+        document.getElementById("pet").value = reserva.pet;
+        document.getElementById("inicio").value = reserva.inicio;
+        document.getElementById("termino").value = reserva.termino;
+        document.getElementById("notas").value = reserva.notas;
+        document.getElementById("status").value = reserva.status;
+        document.getElementById("funcionarioNotas").value =
+          reserva.funcionarioNotas;
+        document.getElementById(
+          "total-diarias"
+        ).innerText = `R$ ${reserva.total.toFixed(2)}`;
+
+        document.getElementById("form-editar-reserva-em-andamento").onsubmit =
+          function (event) {
+            event.preventDefault();
+            salvarReserva(reserva.id);
+          };
+      } else {
+        alert("Reserva não encontrada!");
+      }
+    }
+
+    function salvarReserva(id) {
+      const reservas = JSON.parse(localStorage.getItem("reservas")) || [];
+      const reservaIndex = reservas.findIndex((r) => r.id == id);
+
+      if (reservaIndex !== -1) {
+        const reserva = reservas[reservaIndex];
+        reserva.pet = document.getElementById("pet").value;
+        reserva.inicio = document.getElementById("inicio").value;
+        reserva.termino = document.getElementById("termino").value;
+        reserva.notas = document.getElementById("notas").value;
+        reserva.status = document.getElementById("status").value;
+        reserva.funcionarioNotas =
+          document.getElementById("funcionarioNotas").value;
+
+        const inicio = new Date(reserva.inicio);
+        const termino = new Date(reserva.termino);
+        const diffTime = Math.abs(termino - inicio);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+
+        const configuracoes =
+          JSON.parse(localStorage.getItem("configuracoes")) || {};
+        const diaria = configuracoes.diaria || 40; // Valor padrão caso não haja configuração
+
+        reserva.total = diaria * diffDays;
+
+        reservas[reservaIndex] = reserva;
+        salvarReservasNoLocalStorage(reservas);
+      } else {
+        alert("Reserva não encontrada!");
+      }
+    }
+
+    function salvarReservasNoLocalStorage(reservas) {
+      localStorage.setItem("reservas", JSON.stringify(reservas));
+      alert("Reserva atualizada com sucesso!");
+      window.location.href = "reservas.html";
+    }
+
+    function calcularTotalDiarias() {
+      const inicio = new Date(document.getElementById("inicio").value);
+      const termino = new Date(document.getElementById("termino").value);
+
+      if (inicio && termino && inicio <= termino) {
+        const diffTime = Math.abs(termino - inicio);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+
+        const configuracoes =
+          JSON.parse(localStorage.getItem("configuracoes")) || {};
+        const diaria = configuracoes.diaria || 40; // Valor padrão caso não haja configuração
+
+        const total = diaria * diffDays;
+        document.getElementById(
+          "total-diarias"
+        ).innerText = `R$ ${total.toFixed(2)}`;
+      }
+    }
+
+    document
+      .getElementById("inicio")
+      .addEventListener("change", calcularTotalDiarias);
+    document
+      .getElementById("termino")
+      .addEventListener("change", calcularTotalDiarias);
+
+    window.onload = carregarDetalhesReserva;
+  </script>
+</body>
+</html>

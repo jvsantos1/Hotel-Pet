@@ -3,49 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/">
+    <link rel="stylesheet" href="../Pets/pets.css">
     <title>Pets</title>
 </head>
 <body>
-    <header>
-        <img id="logo" src="../imgGeral/logo.svg" alt="Hotel Pet">
-        <nav>
-            <ul>
-                <li><a href="../Reservas/reservas.html">Home</a></li>
-                <li><a href="../Pets/pets.html">Pet</a></li>
-                <li><a href="../Usuarios/usuarios.html">Usuários</a></li>
-                <li><a href="../Configurações/configuracoes.html">Configurações</a></li>
-                <li><a href="../Reservas/ver_reserva.html">Reservas</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <h2>Pets</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Tipo</th>
-                    <th>Raça</th>
-                    <th>Tamanho</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>12345</td>
-                    <td>Max</td>
-                    <td>Cachorro</td>
-                    <td>Pastor Alemão</td>
-                    <td>Grande</td>
-                    <td><a href="visualizar_pet.html">Visualizar</a> | <a href="editar_pet.html">Editar</a></td>
-                </tr>
-                
-            </tbody>
-        </table>
-        <button onclick="window.location.href='novo_pet.html'">Novo Pet</button>
-    </main>
+        <div class="container">
+            <aside class="sidebar">
+                <img id="logo" src="../imgGeral/logoB.svg" alt="Hotel Pet">
+                <nav>
+                    <ul>
+                        <li><a href="./pets.html">Pet</a></li>
+                        <li><a href="/Usuarios/usuarios.html">Usuários</a></li>
+                        <li><a
+                                href="/Reservas/configuracoes.html">Configurações</a></li>
+                        <li><a href="/Reservas/reservas.html">Reservas</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <main class="content">
+              
+
+                <div class="reservas">
+                    <h2>Pets</h2>
+
+                    <div class="form-action_novareserva">
+                        <a href="/Pets/cadPet.html"><button
+                            type="button">Novo Pet</button></a>
+                    </div>
+
+                    <div class="reservas2">
+                        <form>
+                            <div class="form-reservas">
+                                <div class="form-group">
+                                    <label for="Id">Id</label>
+                                    <input type="text" id="Id" name="Id">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="raça">Raça</label>
+                                    <input type="text" id="raça" name="raça">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="nome">Nome</label>
+                                    <input type="text" id="nome" name="nome">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="tamanho">Tamanho</label>
+                                    <input type="text" id="tamanho"
+                                        name="tamanho">
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit">Pesquisar</button>
+                                <button type="reset">Limpar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>Tipo</th>
+                                    <th>Raça</th>
+                                    <th>Tamanho</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pets-table-body">
+                                <!-- Dados dos pets serão inseridos aqui via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+<script src="pets.js"></script>
 </body>
 </html>

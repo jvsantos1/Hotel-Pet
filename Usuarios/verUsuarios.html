@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./verUsuarios.css">
+    <title>Usuários</title>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <img id="logo" src="../imgGeral/logoB.svg" alt="Hotel Pet">
+            <nav>
+                <ul>
+                    <li><a href="/Pets/pets.html">Pet</a></li>
+                    <li><a href="/Usuarios/usuarios.html">Usuários</a></li>
+                    <li><a href="/Reservas/configuracoes.html">Configurações</a></li>
+                    <li><a href="/Reservas/reservas.html">Reservas</a></li>
+                </ul>
+            </nav>
+        </aside>
+    
+            <main class="content">
+    
+                <div class="reservas">
+                    <h2>Ver Usuário</h2>
+    
+                    <div class="usuario-detalhes">
+                        <p><strong>Email:</strong> <span id="usuario-email"></span></p>
+                        <p><strong>Nome:</strong> <span id="usuario-nome"></span></p>
+                        <p><strong>Status:</strong> <span id="usuario-status"></span></p>
+                        <p><strong>Função:</strong> <span id="usuario-funcao"></span></p>
+                        <p><strong>Criado em:</strong> <span id="usuario-criadoEm"></span></p>
+                        <div class="imagens-usuario">
+                            <h3>Imagem</h3>
+                            <img id="usuario-imagem" src="" alt="Imagem do Usuário" style="max-width: 200px;">
+                        </div>
+    
+                        <div class="form-actions">
+                            <button onclick="window.history.back()">Voltar</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    
+        <script src="verUsuarios.js" defer></script>
+</body>
+</html>

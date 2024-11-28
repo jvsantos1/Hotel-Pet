@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./novaReserva.css">
+    <title>Nova Reserva</title>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <img id="logo" src="../imgGeral/logoB.svg" alt="Hotel Pet">
+            <nav>
+                <ul>
+                    <li><a href="/Pets/pets.html">Pet</a></li>
+                    <li><a href="/Usuarios/usuarios.html">Usuários</a></li>
+                    <li><a href="/Reservas/configuracoes.html">Configurações</a></li>
+                    <li><a href="/Reservas/reservas.html">Reservas</a></li>
+                </ul>
+            </nav>
+        </aside>
+  
+          <main class="content">
+  
+            <div class="reservas">
+              <h2>Cadastrar reserva</h2>
+              <form id="form-cadastrar-reserva">
+                <div class="form-grid">
+                  <div class="form-fields">
+                    <div class="form-group">
+                      <label for="pet">Pet *</label>
+                      <select id="pet" name="pet" required>
+                        <!-- Opções serão preenchidas pelo JavaScript -->
+                      </select>
+                    </div>
+                    <div>
+                      <div class="form-group small-group">
+                        <label for="inicio">Período</label>
+                        <input type="date" id="inicio" name="inicio" />
+                      </div>
+                      <div class="form-group small-group">
+                        <input type="date" id="termino" name="termino" />
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>Notas</label>
+                      <textarea id="notas" name="notas" rows="4"></textarea>
+                    </div>
+                    <div class="total-diarias">
+                      Total das diárias: <span id="total-diarias">R$</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn search">Salvar</button>
+                  <button type="reset" class="btn edit">Limpar</button>
+                </div>
+              </form>
+            </section>
+          </main>
+        </div>
+        <script>
+        document.getElementById("form-cadastrar-reserva").onsubmit = function (
+          event
+        ) {
+          event.preventDefault();
+          salvarReserva();
+        };
+  
+        function carregarPets() {
+          const pets = JSON.parse(localStorage.getItem("pets")) || [];
+          const petSelect = document.getElementById("pet");
+  
+          pets.forEach((pet) => {
+            const option = document.createElement("option");
+            option.value = pet.nome;
+            option.text = pet.nome;
+            petSelect.appendChild(option);
+          });
+        }
+  
+        function salvarReserva() {
+          const configuracoes =
+            JSON.parse(localStorage.getItem("configuracoes")) || {};
+          const vagas = configuracoes.vagas || 0;
+  
+          const reservas = JSON.parse(localStorage.getItem("reservas")) || [];
+          const reservasAtivas = reservas.filter(
+            (reserva) =>
+              reserva.status === "reservado" || reserva.status === "em andamento"
+          ).length;
+  
+          if (reservasAtivas >= vagas) {
+            alert("Não há vagas disponíveis.");
+            return;
+          }
+  
+          const pet = document.getElementById("pet").value;
+          const inicio = document.getElementById("inicio").value;
+          const termino = document.getElementById("termino").value;
+          const notas = document.getElementById("notas").value;
+          const total = parseFloat(
+            document
+              .getElementById("total-diarias")
+              .innerText.replace("R$", "")
+              .replace(",", ".")
+          );
+  
+          const novaReserva = {
+            id: Date.now().toString(),
+            pet: pet,
+            inicio: inicio,
+            termino: termino,
+            notas: notas,
+            status: "reservado",
+            total: total,
+          };
+  
+          reservas.push(novaReserva);
+          localStorage.setItem("reservas", JSON.stringify(reservas));
+  
+          alert("Reserva cadastrada com sucesso!");
+          window.location.href = "reservas.html";
+        }
+  
+        function calcularTotalDiarias() {
+          const inicio = new Date(document.getElementById("inicio").value);
+          const termino = new Date(document.getElementById("termino").value);
+  
+          if (inicio && termino && inicio <= termino) {
+            const diffTime = Math.abs(termino - inicio);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+  
+            const configuracoes =
+              JSON.parse(localStorage.getItem("configuracoes")) || {};
+            const diaria = configuracoes.diaria || 40; // Valor padrão caso não haja configuração
+  
+            const total = diaria * diffDays;
+            document.getElementById(
+              "total-diarias"
+            ).innerText = `R$ ${total.toFixed(2)}`;
+          }
+        }
+  
+        document
+          .getElementById("inicio")
+          .addEventListener("change", calcularTotalDiarias);
+        document
+          .getElementById("termino")
+          .addEventListener("change", calcularTotalDiarias);
+  
+        window.onload = carregarPets;
+      </script>
+</body>
+</html>
